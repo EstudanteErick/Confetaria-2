@@ -5,17 +5,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Critical CSS optimized -->
+    <link rel="preload" href="style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.min.css"></noscript>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"></noscript>
+    
     <title>Confeitaria Doce Encanto</title>
+    
+    <!-- SEO and performance meta tags -->
+    <meta name="description" content="Confeitaria artesanal em Campo Grande, MS. Doces tradicionais feitos com amor há 28 anos.">
+    <meta name="theme-color" content="#8B4513">
+    <link rel="icon" href="imagens/logo.png" type="image/png">
+    
+    <!-- Performance optimization -->
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <style>
+        /* Critical CSS inlined for instant loading */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2C1810;background:linear-gradient(135deg,#FFF8DC 0%,#FAF0E6 100%);overflow-x:hidden}
+        header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(139,69,19,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1)}
+        .nav-bar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#8B4513 0%,#D2691E 50%,#F4A460 100%)}
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="nav-bar">
             <div class="logo">
-                <img src="imagens/logo.png" alt="Confeitaria Doce Encanto">
+                <img src="imagens/logo.png" alt="Confeitaria Doce Encanto" width="50" height="50" loading="eager">
                 <span class="logo-text">Doce Encanto</span>
             </div>
             
@@ -52,12 +81,79 @@
             <div class="hero-content">
                 <h1>Bem-vindos à Confeitaria Doce Encanto</h1>
                 <p>Criamos momentos especiais com doces artesanais feitos com amor</p>
-                <button class="cta-button">Ver Produtos</button>
+                <button class="cta-button" onclick="scrollToSection('produtos')">Ver Produtos</button>
+            </div>
+        </section>
+
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <div class="about-header">
+                    <h2 class="section-title">Nossa História</h2>
+                    <div class="title-decoration"></div>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="imagens/loja.jpg" alt="Interior aconchegante da confeitaria Doce Encanto" loading="lazy" width="600" height="400">
+                        <div class="image-overlay">
+                            <div class="overlay-text">
+                                <span>Desde 1995</span>
+                                <p>Tradição & Sabor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-text">
+                        <div class="story-card">
+                            <div class="story-icon">🇵🇹</div>
+                            <h3>O Início</h3>
+                            <p>No coração de Campo Grande, MS, a "Doce Abraço" nasceu da paixão de Dona Inês, que trouxe de Portugal receitas de família recheadas de carinho. Começou modesta, com o famoso "Bolo de Cenoura com Calda de Brigadeiro", cuja receita secreta era pura intuição e amor.</p>
+                        </div>
+
+                        <div class="story-card">
+                            <div class="story-icon">🎨</div>
+                            <h3>Crescimento</h3>
+                            <p>A confeitaria cresceu, mas manteve sua essência: um refúgio de aconchego onde Dona Inês sempre tinha tempo para conversar. A artista Luna encontrou inspiração aqui e criou um vibrante mural, transformando o espaço em um ponto de conexão e afeto.</p>
+                        </div>
+
+                        <div class="story-card">
+                            <div class="story-icon">👩‍🍳</div>
+                            <h3>Legado</h3>
+                            <p>Hoje, a neta Sofia comanda a cozinha, mantendo vivo o legado da avó. O bolo de cenoura continua sendo o favorito, e seu segredo — o amor — passa de geração em geração. Vendemos não só doces, mas memórias e sorrisos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">28+</div>
+                        <div class="stat-label">Anos de Tradição</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Clientes Felizes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Receitas Especiais</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Gerações</div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
-    <script src="menu.js"></script>
+    <script src="menu.min.js" defer></script>
+    <script>
+        // Service Worker registration
+        if('serviceWorker' in navigator){
+            window.addEventListener('load',()=>{
+                navigator.serviceWorker.register('/sw.js').catch(err=>console.log('SW registration failed'))
+            })
+        }
+    </script>
 </body>
 
 </html>

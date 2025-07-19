@@ -1,16 +1,6 @@
-// Toggle do menu mobile
-function menuShow() {
-    const menuMobile = document.querySelector('.mobile-menu');
-    const menuIcon = document.querySelector('.mobile-menu-icon');
-    
-    if (menuMobile.classList.contains('open')) {
-        menuMobile.classList.remove('open');
-        menuIcon.classList.remove('active');
-    } else {
-        menuMobile.classList.add('open');
-        menuIcon.classList.add('active');
-    }
-}
+// Optimized menu functions
+function menuShow(){const m=document.querySelector('.mobile-menu'),i=document.querySelector('.mobile-menu-icon');m.classList.toggle('open');i.classList.toggle('active')}
+function scrollToSection(id){const el=document.getElementById(id);if(el){const h=document.querySelector('header').offsetHeight;window.scrollTo({top:el.offsetTop-h,behavior:'smooth'})}}
 
 // Fechar menu mobile ao clicar em um link
 document.addEventListener('DOMContentLoaded', function() {
