@@ -15,9 +15,13 @@
     <link rel="preload" href="style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.min.css"></noscript>
     
-    <!-- Preload critical fonts -->
+    <!-- Preload critical fonts with font-display swap -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Preload images críticas -->
+    <link rel="preload" href="imagens/logo.png" as="image">
+    <link rel="preload" href="imagens/loja.jpg" as="image">
     
     <title>Confeitaria Doce Encanto</title>
     
@@ -33,10 +37,15 @@
     <style>
         /* Critical CSS inlined for instant loading */
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2C1810;background:linear-gradient(135deg,#FFF8DC 0%,#FAF0E6 100%);overflow-x:hidden}
-        header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(139,69,19,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1)}
+        body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;color:#2C1810;background:linear-gradient(135deg,#FFF8DC 0%,#FAF0E6 100%);overflow-x:hidden;font-display:swap}
+        header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(139,69,19,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1);will-change:background;transform:translateZ(0)}
         .nav-bar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
-        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#8B4513 0%,#D2691E 50%,#F4A460 100%)}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#8B4513 0%,#D2691E 50%,#F4A460 100%);will-change:transform}
+        .hero-content{transform:translateZ(0)}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+        img{will-change:transform}
+        .products-section{transform:translateZ(0)}
     </style>
 </head>
 
@@ -44,7 +53,7 @@
     <header>
         <nav class="nav-bar">
             <div class="logo">
-                <img src="imagens/logo.png" alt="Confeitaria Doce Encanto" width="50" height="50" loading="eager">
+                <img src="imagens/logo.png" alt="Confeitaria Doce Encanto" width="50" height="50" loading="eager" decoding="async">
                 <span class="logo-text">Doce Encanto</span>
             </div>
             
@@ -85,7 +94,7 @@
             </div>
         </section>
 
-        <section id="sobre" class="about-section">
+        <section id="sobre" class="about-section fade-in">
             <div class="container">
                 <div class="about-header">
                     <h2 class="section-title">Nossa História</h2>
@@ -94,7 +103,7 @@
 
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="imagens/loja.jpg" alt="Interior aconchegante da confeitaria Doce Encanto" loading="lazy" width="600" height="400">
+                        <img src="imagens/loja.jpg" alt="Interior aconchegante da confeitaria Doce Encanto" loading="lazy" width="600" height="400" decoding="async">
                         <div class="image-overlay">
                             <div class="overlay-text">
                                 <span>Desde 1995</span>
@@ -145,6 +154,174 @@
             </div>
         </section>
     </main>
+
+        <section id="produtos" class="products-section fade-in">
+            <div class="container">
+                <div class="products-header">
+                    <h2 class="section-title">Nossos Produtos</h2>
+                    <div class="title-decoration"></div>
+                    <p class="products-subtitle">Delícias artesanais feitas com amor e ingredientes selecionados</p>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/BOLO1.png" alt="Bolo de Chocolate Premium" loading="lazy" decoding="async" width="300" height="300">
+                            <div class="product-badge">Mais Vendido</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Bolo de Chocolate Premium</h3>
+                            <p class="product-description">Delicioso bolo de chocolate com massa úmida, cobertura cremosa e raspas de chocolate belga. Uma experiência única para os amantes do chocolate.</p>
+                            <div class="product-details">
+                                <span class="product-weight">800g</span>
+                                <span class="product-serves">Serve 8 pessoas</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>📋</span> Ver Ingredientes
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">R$ 89,90</span>
+                                    <button class="btn-cart">
+                                        <span>🛒</span> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/BOLO2.png" alt="Bolo Red Velvet" loading="lazy" decoding="async" width="300" height="300">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Bolo Red Velvet</h3>
+                            <p class="product-description">Clássico americano com massa vermelha aveludada e cream cheese. Uma combinação perfeita de sabor e elegância.</p>
+                            <div class="product-details">
+                                <span class="product-weight">750g</span>
+                                <span class="product-serves">Serve 6 pessoas</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>📋</span> Ver Ingredientes
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">R$ 94,90</span>
+                                    <button class="btn-cart">
+                                        <span>🛒</span> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/BOLO3.png" alt="Bolo de Cenoura Especial" loading="lazy" decoding="async" width="300" height="300">
+                            <div class="product-badge special">Receita da Vovó</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Bolo de Cenoura Especial</h3>
+                            <p class="product-description">Nossa famosa receita de família com brigadeiro cremoso. O segredo que passa de geração em geração.</p>
+                            <div class="product-details">
+                                <span class="product-weight">900g</span>
+                                <span class="product-serves">Serve 10 pessoas</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>📋</span> Ver Ingredientes
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">R$ 78,90</span>
+                                    <button class="btn-cart">
+                                        <span>🛒</span> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/BOLO4.png" alt="Torta de Frutas Vermelhas" loading="lazy" decoding="async" width="300" height="300">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Torta de Frutas Vermelhas</h3>
+                            <p class="product-description">Base crocante, creme patissier e frutas vermelhas frescas. Uma explosão de sabores naturais e refrescantes.</p>
+                            <div class="product-details">
+                                <span class="product-weight">600g</span>
+                                <span class="product-serves">Serve 6 pessoas</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>📋</span> Ver Ingredientes
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">R$ 112,90</span>
+                                    <button class="btn-cart">
+                                        <span>🛒</span> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/BOLO5.png" alt="Cheesecake de Morango" loading="lazy" decoding="async" width="300" height="300">
+                            <div class="product-badge new">Novidade</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Cheesecake de Morango</h3>
+                            <p class="product-description">Cremoso cheesecake com base de biscoito e cobertura de morangos frescos. Irresistível para qualquer ocasião.</p>
+                            <div class="product-details">
+                                <span class="product-weight">700g</span>
+                                <span class="product-serves">Serve 8 pessoas</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>📋</span> Ver Ingredientes
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">R$ 98,90</span>
+                                    <button class="btn-cart">
+                                        <span>🛒</span> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="imagens/bolo-pagina-inicial.png" alt="Bolo Aniversário Personalizado" loading="lazy" decoding="async" width="300" height="300">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Bolo Personalizado</h3>
+                            <p class="product-description">Crie seu bolo dos sonhos! Escolha sabor, recheio, decoração e tema. Perfeito para aniversários e celebrações especiais.</p>
+                            <div class="product-details">
+                                <span class="product-weight">1kg+</span>
+                                <span class="product-serves">Sob encomenda</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-ingredients">
+                                    <span>💬</span> Fazer Orçamento
+                                </button>
+                                <div class="price-section">
+                                    <span class="product-price">A partir de R$ 120,00</span>
+                                    <button class="btn-cart special">
+                                        <span>📞</span> Contatar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
     <script src="menu.min.js" defer></script>
     <script>
         // Service Worker registration
@@ -153,6 +330,50 @@
                 navigator.serviceWorker.register('/sw.js').catch(err=>console.log('SW registration failed'))
             })
         }
+
+        // Intersection Observer para animações de fade-in
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos com animação
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Otimização de scroll
+        let ticking = false;
+        function updateScrollEffects() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const header = document.querySelector('header');
+            
+            if (scrollTop > 100) {
+                header.style.background = 'rgba(139, 69, 19, 0.98)';
+            } else {
+                header.style.background = 'rgba(139, 69, 19, 0.95)';
+            }
+            ticking = false;
+        }
+
+        function requestScrollUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
     </script>
 </body>
 

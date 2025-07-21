@@ -35,21 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Efeito de header transparente no scroll
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.style.background = 'rgba(139, 69, 19, 0.98)';
-        } else {
-            header.style.background = 'rgba(139, 69, 19, 0.95)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+    // Performance optimizations already moved to index.html
     
     // Animação do botão CTA
     const ctaButton = document.querySelector('.cta-button');
